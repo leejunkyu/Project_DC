@@ -21,7 +21,17 @@ public class FileDao {
 		return dao;
 	}
 	
-
+	public void increaseViewCount(int num) {
+		SqlSession session=null;
+		try {
+			session=factory.openSession(true);
+			session.update("file.downCount", num);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}	
+	}
 	
 	//FileDao 객체를 리턴해주는 static 맴버 메소드
 		public int getCount(FileDto dto) {
