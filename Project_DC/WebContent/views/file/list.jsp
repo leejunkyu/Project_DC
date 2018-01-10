@@ -22,6 +22,7 @@
 				<th>파일</th>
 				<th>크기</th>
 				<th>등록일</th>
+				<th>다운로드수</th>
 				<th>삭제</th>
 			</tr>
 		</thead>
@@ -34,6 +35,7 @@
 					<td><a href="download.do?num=${tmp.num }">${tmp.orgFileName }</a></td>
 					<td><fmt:formatNumber value="${tmp.fileSize }"/> byte</td>
 					<td>${tmp.regdate }</td>
+					<td>${tmp.downCount}</td>
 					<td>
 						<!-- 로그인된 아이디가 글 작성자와 같을때만 삭제 링크 출력 -->
 						<c:if test="${id eq tmp.writer }">

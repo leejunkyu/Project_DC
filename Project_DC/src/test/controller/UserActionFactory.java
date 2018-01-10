@@ -1,6 +1,7 @@
 package test.controller;
 
 import test.action.HomeAction;
+import test.file.action.FileDeleteAction;
 import test.file.action.FileDownAction;
 import test.file.action.FileInsertAction;
 import test.file.action.FileInsertFormAction;
@@ -51,6 +52,8 @@ public class UserActionFactory {
     	 action=new UsersSearchFormAction();
 	     }else if(command.equals("/users/logout")) {
 	    	 action=new UsersLogoutAction();
+	     }else if(command.equals("/file/private/delete")) {
+	    	 action=new FileDeleteAction();
 	     }
 
       return action;

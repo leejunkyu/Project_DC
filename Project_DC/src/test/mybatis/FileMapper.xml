@@ -56,4 +56,9 @@
 			</if>
 		</where>	
 	</select>
+	<update id="downCount" parameterType="int">
+		UPDATE board_file
+		SET downCount=downCount+1
+		WHERE num=#{num}
+	</update>
 </mapper>

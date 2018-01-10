@@ -19,6 +19,7 @@ public class FileDownAction extends Action{
 			 	
 			 	// FileDto 를 request 에 담고
 			 	request.setAttribute("dto", dto);
+			 	FileDao.getInstance().downCount(num);
 			 	
 			 	// 파일을 다운로드 시켜주는 view 페이지로 forward 이동해서
 			 	// 파일 다운로드 시켜주기
