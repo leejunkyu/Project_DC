@@ -113,15 +113,19 @@ public class FileInsertAction extends Action {
 	                }//if
 	            }//for
 	            //DB 에 파일 정보를 저장한다.
-	            FileDao.getInstance().insert(dto);
+	         FileDao.getInstance().insert(dto);
+	         
 	        }//if
 	        
 	    } catch (Exception ex) {
 	     
 	        System.out.println(ex.getMessage());
 	    }
-	   		
-		return new ActionForward("/views/file/list.jsp");
+	   
+
+		ActionForward af = new ActionForward("/file/list.do");
+		af.setRedirect(true);
+		return af;
 	}
 
 }

@@ -17,7 +17,7 @@
 		INSERT INTO board_file
 		(num,writer,title,orgFileName,saveFileName,fileSize,regdate,downCount)
 		VALUES(board_file_seq.NEXTVAL,#{writer}, #{title},
-		#{orgFileName},#{saveFileName},#{fileSize},SYSDATE)
+		#{orgFileName},#{saveFileName},#{fileSize},SYSDATE,#{downCount})
 	</insert>
 
 	<select id="getList" parameterType="test.file.dto.FileDto" resultType="test.file.dto.FileDto">

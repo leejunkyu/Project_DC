@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  */
 
 //다수의 필터를 설정하려면 {} 안에 집어 넣어서 ,로 구분해서 사용
-@WebFilter({"/users/private/*","/cafe/private/*"})
+@WebFilter({"/users/private/*","/cafe/private/*","/file/private/*"})
 public class LoginFilter implements Filter{
 
 	@Override

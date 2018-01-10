@@ -22,7 +22,7 @@ public class FileDao {
 		//
 	}
 	
-	public void increaseViewCount(int num) {
+	public void downCount(int num) {
 		SqlSession session=null;
 		try {
 			session=factory.openSession(true);
