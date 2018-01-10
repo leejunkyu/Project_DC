@@ -5,6 +5,8 @@ import test.users.action.UsersInsertAction;
 import test.users.action.UsersInsertFormAction;
 import test.users.action.UsersLoginAction;
 import test.users.action.UsersLoginFormAction;
+import test.users.action.UsersLogoutAction;
+import test.users.action.UsersSearchFormAction;
 
 public class UserActionFactory {
    
@@ -33,6 +35,10 @@ public class UserActionFactory {
     	 action=new UsersLoginAction();
      }else if(command.equals("/home")) {
    	  action=new HomeAction();
+     }else if(command.equals("/users/searchform")) {
+    	 action=new UsersSearchFormAction();
+     }else if(command.equals("/users/logout")) {
+    	 action=new UsersLogoutAction();
      }
       return action;
    }

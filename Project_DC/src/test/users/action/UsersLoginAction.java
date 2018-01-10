@@ -22,7 +22,7 @@ public class UsersLoginAction extends Action{
 		boolean result=UsersDao.getInstance().isValid(dto);
 		if(result) {
 			HttpSession session=request.getSession();
-			session.getAttribute("id");
+			session.setAttribute("id", id);
 		}
 		return new ActionForward("/views/users/login.jsp");
 	}
