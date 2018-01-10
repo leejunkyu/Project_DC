@@ -19,6 +19,7 @@ public class FileDao {
 			factory=SqlMapConfig.getSqlSession();
 		}
 		return dao;
+		//
 	}
 	
 	public void increaseViewCount(int num) {
