@@ -8,8 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="file/list.do">파일보기</a>
+<c:if test="${empty id }">
 <a href="users/loginform.do">로그인</a>
 <a href="users/insertform.do">회원가입</a>
-<a href="file/list.do">파일보기</a>
+<a href="users/searchform.do">아이디찾기</a>
+</c:if>
+<c:if test="${not empty id }">
+<p><strong>${id }</strong> 님 로그인</p>
+<a href="users/logout.do">로그아웃</a>
+</c:if>
+
 </body>
 </html>
