@@ -5,11 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="${pageContext.request.contextPath }/js/jquery-3.2.1.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.2.1.js"></script>
 </head>
 <body>
 <h3>회원가입 페이지 입니다.</h3>
 <form action="insert.do">
+	<label for="name">이름</label>
+	<input type="text" name="name" id="name" /><br/>
 	<label for="id">아이디</label>
 	<input type="text" name="id" id="id" />
 	<button id="check">중복확인</button><br/>

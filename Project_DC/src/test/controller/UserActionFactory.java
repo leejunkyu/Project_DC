@@ -1,7 +1,10 @@
 package test.controller;
 
+import test.action.HomeAction;
 import test.users.action.UsersInsertAction;
 import test.users.action.UsersInsertFormAction;
+import test.users.action.UsersLoginAction;
+import test.users.action.UsersLoginFormAction;
 
 public class UserActionFactory {
    
@@ -24,6 +27,12 @@ public class UserActionFactory {
     	 action=new UsersInsertFormAction();
      }else if(command.equals("/users/insert")) {
     	 action=new UsersInsertAction();
+     }else if(command.equals("/users/loginform")) {
+    	 action=new UsersLoginFormAction();
+     }else if(command.equals("/users/login")) {
+    	 action=new UsersLoginAction();
+     }else if(command.equals("/home")) {
+   	  action=new HomeAction();
      }
       return action;
    }
