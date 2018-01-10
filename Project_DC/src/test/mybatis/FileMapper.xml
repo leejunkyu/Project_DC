@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="file">
+	<delete id="delete" parameterType="int">
+		DELETE FROM board_file
+		WHERE num=#{num}
+	</delete>
+
+	<select id="getData" parameterType="int"
+		resultType="test.file.dto.FileDto">
+		SELECT num,writer,title,orgFileName,saveFileName,fileSize,regdate,downCount
+		FROM board_file
+		WHERE num=#{num}
+	</select>
+
+	<insert id="insert" parameterType="test.file.dto.FileDto">
+		INSERT INTO board_file
+		(num,writer,title,orgFileName,saveFileName,fileSize,regdate,downCount)
+		VALUES(board_file_seq.NEXTVAL,#{writer}, #{title},
+		#{orgFileName},#{saveFileName},#{fileSize},SYSDATE)
+	</insert>
+
+	<select id="getList" parameterType="test.file.dto.FileDto" resultType="test.file.dto.FileDto">
+		SELECT *
+		FROM (SELECT result1.*,ROWNUM rnum
+			  FROM (SELECT num,writer,title,orgFileName,fileSize,
+			  		TO_CHAR(regdate, 'YYYY.MM.DD AM HH"시 "MM"분"') regdate,downCount
+			  		FROM board_file 
+			  		<where>
+						<if test="writer != null">
+							OR writer LIKE '%'||#{writer}||'%'
+						</if>
+						<if test="title != null">
+							OR title LIKE '%'||#{title}||'%'
+						</if>
+						<if test="orgFileName != null">
+							OR orgFileName LIKE '%'||#{orgFileName}||'%'
+						</if>
+					</where>	
+			  		ORDER BY num DESC) result1
+			  )
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}	</select>
 	
+	<select id="getCount" parameterType="test.file.dto.FileDto" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0) 
+		FROM board_file
+		<where>
+			<if test="writer != null">
+				OR writer LIKE '%'||#{writer}||'%'
+			</if>
+			<if test="title != null">
+				OR title LIKE '%'||#{title}||'%'
+			</if>
+			<if test="orgFileName != null">
+				OR orgFileName LIKE '%'||#{orgFileName}||'%'
+			</if>
+		</where>	
+	</select>
 </mapper>

@@ -10,5 +10,6 @@
 <body>
 <a href="users/loginform.do">로그인</a>
 <a href="users/insertform.do">회원가입</a>
+<a href="file/list.do">파일보기</a>
 </body>
 </html>
